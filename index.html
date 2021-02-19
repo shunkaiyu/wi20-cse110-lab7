@@ -174,11 +174,12 @@
         let author1 = document.getElementById("author");
         let title1 = document.getElementById("title");
         let id1 = document.getElementById("recordID");
-        let element = {title: title1.value, author: author1.value, id: id1};
-
+        let element = {title: title1.value, author: author1.value, id: id1.value};
+        let key = Number(id1.value)
+        
         if(arguments[0] == 'submit'){
         let url = document.getElementById('endpoint').value;
-        fetch(url + '/' + id1, {
+        fetch(url + '/' + key, {
         method: 'put',
         headers: {
           "Content-type": "application/json"
@@ -186,7 +187,9 @@
         body: JSON.stringify(element)
       })
       .then(response => response.json())
-      .then(output.textContent = JSON.stringify(response))
+      .then(data => {
+          output.textContent = JSON.stringfy(data);
+        })
       }
     }
 
