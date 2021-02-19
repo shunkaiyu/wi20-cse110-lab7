@@ -153,9 +153,9 @@
         body: JSON.stringify(element)
       })
       .then(response => response.json())
-      var res = response;
+      .then(data => {output.textContent = JSON.stringify(data);
+        })
       }
-      output.textContent = JSON.stringify(res);
       }
 
       // This function should use fetch to update one existing entry in the given endpoint.
