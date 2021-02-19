@@ -186,9 +186,8 @@
         body: JSON.stringify(element)
       })
       .then(response => response.json())
-      var res = response;
+      .then(output.textContent = JSON.stringify(response))
       }
-      output.textContent = JSON.stringify(res);
     }
 
       // This function should use fetch to delete one existing entry in the given endpoint.
